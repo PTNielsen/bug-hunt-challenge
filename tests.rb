@@ -92,7 +92,7 @@ class CounterAppTest < Minitest::Test
     QuoteVotes["It is nobler to declare oneself wrong than to insist on being right - especially when one is right."] = 7
     QuoteVotes["Give me six hours to chop down a tree and I will spend the first four sharpening the axe."] = 6
 
-    response = get '/top_quote'
+    response = get '/top_quote', needle: "hours"  #Removed /hours from top_quote path and added it as a parameter
     assert_equal 200, response.status
 
     quote = JSON.parse response.body
